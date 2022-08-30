@@ -43,13 +43,13 @@ body{
 /* to do list */
 
 #toDoList {
-  background: #f1f5f8;
   background-size: 25px 25px;
   border-radius: 20px;
   box-shadow: 4px 3px 7px 2px #00000040;
   margin: 5% 10% 2% 10%;
   padding-top: 1%;
   box-sizing: border-box;
+  background-color: #f4fdf3
 }
 
 .form input {

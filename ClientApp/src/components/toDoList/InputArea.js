@@ -13,6 +13,7 @@ export default function InputArea(props) {
       <input onChange={handleChange} type="text" value={inputText} maxLength="80"/>
       <button
         id="toDoButton"
+        title="Add a new item"
         onClick={() => {
           props.onAdd(inputText);
           setInputText("");
