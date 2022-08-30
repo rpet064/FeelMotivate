@@ -4,7 +4,12 @@ import Header from "./components/Header";
 import React, { useState } from "react";
 import ToDoItem from "./components/toDoList/ToDoItem";
 import InputArea from "./components/toDoList/InputArea";
-
+import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import {
+  faEnvelope
+} from "@fortawesome/free-solid-svg-icons";
+import { library } from "@fortawesome/fontawesome-svg-core";
+library.add(faGithub,faLinkedin, faEnvelope);
 
  export default function App() {
   const [items, setItems] = useState([]);
@@ -26,7 +31,6 @@ import InputArea from "./components/toDoList/InputArea";
       <div>
         <Header />
         <div>
-          <h1> Feeling Motivated?</h1>
           <div id="toDoList">
             <InputArea onAdd={addItem} />
             <div>

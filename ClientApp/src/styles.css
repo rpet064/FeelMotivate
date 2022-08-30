@@ -11,7 +11,7 @@
   box-sizing: border-box;
   font-weight: 300;
   text-align: center;
-  font-family: "Acme", sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 body{
@@ -21,29 +21,23 @@ body{
 
 /* nav bar */
 
-.nav {
+.header {
   background-color: #b762c1;
   margin: auto -16px;
-  padding: 16px 32px;
+  padding: 0.01rem;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
 }
 
 /* navbar button styling */
 
-.btn-primary {
-  background: #b762c1;
-  border: none;
-}
-
-.btn-primary:hover {
-  background: #ada458;
-}
-
-#button-brand {
-  font-size: 2rem;
+#brand {
+  font-size: 2.4rem;
   border: none;
   background-color: #b762c1;
   color: white;
+  font-family: 'Qwitcher Grypen', cursive;
+  position: relative;
+  right: 40%;
 }
 
 /* to do list */
@@ -53,7 +47,7 @@ body{
   background-size: 25px 25px;
   border-radius: 20px;
   box-shadow: 4px 3px 7px 2px #00000040;
-  margin: 2.5% 10% 2% 10%;
+  margin: 5% 10% 2% 10%;
   padding-top: 1%;
   box-sizing: border-box;
 }
@@ -120,5 +114,14 @@ footer {
 }
 
 footer p {
-  padding: 0.25%;
+  margin-bottom: 0.25%;
+}
+
+footer svg{
+  color: white;
+  padding: 0.4% 0.25% 0% 0.25%
+}
+
+footer svg:hover{
+  color: #dc3545;
 }

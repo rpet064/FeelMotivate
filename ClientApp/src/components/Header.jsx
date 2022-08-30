@@ -1,7 +1,9 @@
 export default function Header(){
     return(
-        <h1>
-            This is the header
-        </h1>
+        <div className='header' >
+            <h1 id='brand'>
+                FeelMotivate
+            </h1>
+        </div>
     )
 }
