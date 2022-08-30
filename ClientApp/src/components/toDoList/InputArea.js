@@ -17,8 +17,7 @@ export default function InputArea(props) {
           props.onAdd(inputText);
           setInputText("");
         }}
-      >
-        <span>Add</span>
+      > Add
       </button>
     </div>
   );

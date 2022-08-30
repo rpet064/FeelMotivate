@@ -22,7 +22,7 @@ body{
 /* nav bar */
 
 .header {
-  background-color: #b762c1;
+  background-color: #7fd981;
   margin: auto -16px;
   padding: 0.01rem;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
@@ -33,7 +33,7 @@ body{
 #brand {
   font-size: 2.4rem;
   border: none;
-  background-color: #b762c1;
+  background-color: #7fd981;
   color: white;
   font-family: 'Qwitcher Grypen', cursive;
   position: relative;
@@ -67,9 +67,10 @@ body{
 ul {
   text-align: left;
   position: relative;
-  padding: 1rem 0.5rem 1rem 5%;
-  margin: 0.5% 1% 0.5% 10%;
+  padding: 0.5rem 0.5rem 1rem 0.4%;
+  margin: 0.5% 1% 3% 10%;
   font-size: 1.25rem;
+  bottom: 2%;
 }
 
 /* to do list buttons */
@@ -77,26 +78,15 @@ ul {
 #toDoButton {
   position: relative;
   top: 1rem;
-  padding: 1%;
+  padding: 1.5% 2.5% 1.5% 2.5%;
   border: none;
-  text-decoration: none;
-  border-radius: 5px;
-  margin: 2% 2% 2% 2%;
+  margin: 3%;
   background-color: #dc3545;
   border-radius: 10%;
+  color: #fff;
 }
 
-#toDoButton span {
-  background: #f1f5f8;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
-  color: #fff;
-  background-color: #dc3545;
-  border-color: #dc3545;
-}
-
-#toDoButton span:hover {
-  color: #fff;
+#toDoButton:hover {
   background-color: #bb2d3b;
   border-color: #b02a37;
 }
@@ -107,8 +97,8 @@ footer {
   position: fixed;
   width: 100%;
   bottom: 0;
-  height: 4rem;
-  background-color: #b762c1;
+  height: 4.2rem;
+  background-color: #7fd981;
   color: white;
   margin-top: 1rem;
 }
@@ -119,7 +109,7 @@ footer p {
 
 footer svg{
   color: white;
-  padding: 0.4% 0.25% 0% 0.25%
+  padding: 0.7% 0.25% 0% 0.25%
 }
 
 footer svg:hover{
