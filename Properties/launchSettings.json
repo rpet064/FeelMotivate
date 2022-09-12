@@ -24,6 +24,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development",
         "ASPNETCORE_HOSTINGSTARTUPASSEMBLIES": "Microsoft.AspNetCore.SpaProxy"
       }
-    }
+    },
+    "launchUrl": "api/todoitems"
   }
 }
