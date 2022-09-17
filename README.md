@@ -1,11 +1,5 @@
-# About
-Having brillant ideas that you need to write down before forgetting? Lot's of important things that need to be done? Look no further - This note-taking app let's you create when you have something important to write down, and delete them when you have acheived them.
+# dotnet-6-crud-api
 
-# Functionality
-It's a note-taking app
+.NET 6.0 - CRUD API Example
 
-# Front-end
-React & FontAwesome
-
-# Back-end
-.Net Sever & Postgres
+Documentation at https://jasonwatmore.com/post/2022/03/15/net-6-crud-api-example-and-tutorial

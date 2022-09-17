@@ -1,31 +1,44 @@
-using Microsoft.EntityFrameworkCore;
-using TodoApi.Models;
+﻿using System.Text.Json.Serialization;
+using WebApi.Helpers;
+using WebApi.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-builder.Services.AddControllers();
-builder.Services.AddDbContext<TodoContext>(opt =>
-    opt.UseInMemoryDatabase("TodoList"));
-//builder.Services.AddSwaggerGen(c =>
-//{
-//    c.SwaggerDoc("v1", new() { Title = "TodoApi", Version = "v1" });
-//});
+// add services to DI container
+{
+    var services = builder.Services;
+    var env = builder.Environment;
+
+    services.AddDbContext<DataContext>();
+    services.AddCors();
+    services.AddControllers().AddJsonOptions(x =>
+    {
+        // serialize enums as strings in api responses (e.g. Role)
+        x.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+
+        // ignore omitted parameters on models to enable optional params (e.g. User update)
+        x.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
+    });
+    services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+    // configure DI for application services
+    services.AddScoped<INoteService, NoteService>();
+}
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (builder.Environment.IsDevelopment())
+// configure HTTP request pipeline
 {
-    app.UseDeveloperExceptionPage();
-    //app.UseSwagger();
-    //app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "TodoApi v1"));
+    // global cors policy
+    app.UseCors(x => x
+        .AllowAnyOrigin()
+        .AllowAnyMethod()
+        .AllowAnyHeader());
+
+    // global error handler
+    app.UseMiddleware<ErrorHandlerMiddleware>();
+
+    app.MapControllers();
 }
 
-app.UseHttpsRedirection();
-
-app.UseAuthorization();
-
-app.MapControllers();
-
-app.Run();
+app.Run("http://localhost:4000");
