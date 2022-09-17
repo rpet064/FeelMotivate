@@ -20,28 +20,16 @@ library.add(faGithub,faLinkedin, faEnvelope);
     fetchData()
   }, []);
 
-  function addItem(inputText) {
-    const requestOptions = {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ Content: inputText })
-    };
-    fetch('http://localhost:4000/notes', requestOptions)
-        .then(response => response.json())
-        .then(data => this.setState({ postId: data.id }));
-    setNotes((prevNotes) => {
-      return [...prevNotes, inputText];
-    });
-    fetchData();
+  const addItem = async (inputText) =>{ 
+    const postData = await axios.post('http://localhost:4000/notes',{
+      Content: inputText
+    })
+    await fetchData()
   }
+
 
   async function deleteNote(id) {
     await fetch(`http://localhost:4000/notes/${id}`, { method: 'DELETE' })
-    await setNotes((prevNotes) => {
-      return prevNotes.filter((note, index) => {
-        return index !== id;
-      });
-    });
     await fetchData();
   }
 
@@ -52,8 +40,6 @@ library.add(faGithub,faLinkedin, faEnvelope);
       setNotes(response.data)
     })
   }
-
-  
 
     return(
       <div>
