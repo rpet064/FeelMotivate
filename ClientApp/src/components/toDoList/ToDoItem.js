@@ -2,7 +2,7 @@ import React from "react";
 
 export default function ToDoItem(props) {
   return (
-    <div
+    <div className='list-item'
       onClick={() => {
         props.onChecked(props.id);
       }}

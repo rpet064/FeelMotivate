@@ -5,7 +5,6 @@ using WebApi.Entities;
 
 public class UpdateRequest
 {
-    public string Title { get; set; }
     public string Content { get; set; }
 
      private string ReplaceEmptyWithNull(string value)
