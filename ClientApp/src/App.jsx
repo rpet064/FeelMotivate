@@ -1,8 +1,8 @@
 import "./styles.css";
 import { useEffect } from 'react';
 import Footer from "./components/Footer";
-import Header from "./components/Header";
-import React, { useState } from "react";
+import Navbar from "./components/Navbar";
+import { useState } from "react";
 import ToDoItem from "./components/toDoList/ToDoItem";
 import InputArea from "./components/toDoList/InputArea";
 import axios from 'axios';
@@ -21,6 +21,11 @@ library.add(faGithub,faLinkedin, faEnvelope);
   }, []);
 
   const addItem = async (inputText) =>{ 
+
+    // Capitalise string regardless of user input
+    inputText = inputText.charAt(0).toUpperCase() + inputText.slice(1);
+
+    // Post note data to sever
     const postData = await axios.post('http://localhost:4000/notes',{
       Content: inputText
     })
@@ -29,11 +34,15 @@ library.add(faGithub,faLinkedin, faEnvelope);
 
 
   async function deleteNote(id) {
+
+    // Delete note data from sever
     await fetch(`http://localhost:4000/notes/${id}`, { method: 'DELETE' })
     await fetchData();
   }
 
   const fetchData = async() => {
+
+    // Detch note data from sever
     axios.get('http://localhost:4000/notes'
   ).then(
     (response) => {
@@ -42,9 +51,9 @@ library.add(faGithub,faLinkedin, faEnvelope);
   }
 
     return(
-      <div>
-        <Header />
-        <div>
+      <div id="main">
+        <Navbar />
+        <div id="main-content">
           <div id="toDoList">
             <InputArea onAdd={addItem} />
             <div>

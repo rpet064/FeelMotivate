@@ -8,7 +8,7 @@ Backend - .NET
 Database - MySQL
 
 # Updates and Bug Fixes
-09-03 - Uploaded Code
+09-03 - Begin project
 23-07 - Front-end Finished & Deployed
 30-07 - Sever API Finished
 07-08 - Database connected & Deployed
