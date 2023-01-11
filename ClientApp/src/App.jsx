@@ -26,7 +26,7 @@ library.add(faGithub,faLinkedin, faEnvelope);
     inputText = inputText.charAt(0).toUpperCase() + inputText.slice(1);
 
     // Post note data to sever
-    const postData = await axios.post('http://localhost:4000/notes',{
+    const postData = await axios.post('/notes',{
       Content: inputText
     })
     await fetchData()
@@ -36,14 +36,14 @@ library.add(faGithub,faLinkedin, faEnvelope);
   async function deleteNote(id) {
 
     // Delete note data from sever
-    await fetch(`http://localhost:4000/notes/${id}`, { method: 'DELETE' })
+    await fetch(`/notes/${id}`, { method: 'DELETE' })
     await fetchData();
   }
 
   const fetchData = async() => {
 
     // Detch note data from sever
-    axios.get('http://localhost:4000/notes'
+    axios.get('/notes'
   ).then(
     (response) => {
       setNotes(response.data)

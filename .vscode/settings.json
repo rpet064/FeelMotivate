@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/452f790e-e613-44a7-9420-46b56a776d13/AppServices/subscriptions/452f790e-e613-44a7-9420-46b56a776d13/resourceGroups/appsvc_windows_centralus/providers/Microsoft.Web/sites/FeelMotivate",
+    "appService.deploySubpath": "bin/Publish"
+}
