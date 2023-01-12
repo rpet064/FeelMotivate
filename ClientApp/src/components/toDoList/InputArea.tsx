@@ -1,16 +1,20 @@
 import { useState } from "react";
 
-export default function InputArea(props) {
+type Props = {
+  onAdd: Function;
+}
+
+ const InputArea:React.FC<Props> = (props) => {
   const [inputText, setInputText] = useState("");
 
-  function handleChange(event) {
+  function handleChange(event: any) {
     const newValue = event.target.value;
     setInputText(newValue);
   }
 
   return (
     <div className="form">
-      <input onChange={handleChange} type="text" value={inputText} maxLength="80"/>
+      <input onChange={handleChange} type="text" value={inputText} maxLength={80}/>
       <button
         id="toDoButton"
         title="Add a new item"
@@ -23,3 +27,5 @@ export default function InputArea(props) {
     </div>
   );
 }
+
+export default InputArea

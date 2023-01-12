@@ -6,44 +6,42 @@ import { useState } from "react";
 import ToDoItem from "./components/toDoList/ToDoItem";
 import InputArea from "./components/toDoList/InputArea";
 import axios from 'axios';
-import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
-import {
-  faEnvelope
-} from "@fortawesome/free-solid-svg-icons";
-import { library } from "@fortawesome/fontawesome-svg-core";
-library.add(faGithub,faLinkedin, faEnvelope);
 
  export default function App() {
-  const [notes, setNotes] = useState([]);
+  const [notes, setNotes] = useState([{
+    "content": "",
+    "id": 0
+ }]);
   
   useEffect(() => {
     fetchData()
   }, []);
 
-  const addItem = async (inputText) =>{ 
+  const addItem = async (inputText: String) =>{ 
 
     // Capitalise string regardless of user input
     inputText = inputText.charAt(0).toUpperCase() + inputText.slice(1);
 
     // Post note data to sever
-    const postData = await axios.post('/notes',{
+    const postData = await axios.post('http://localhost:4000/notes',{
       Content: inputText
     })
+    console.log(postData);
     await fetchData()
   }
 
 
-  async function deleteNote(id) {
+  async function deleteNote(id: Number) {
 
     // Delete note data from sever
-    await fetch(`/notes/${id}`, { method: 'DELETE' })
+    await fetch(`http://localhost:4000/notes/${id}`, { method: 'DELETE' })
     await fetchData();
   }
 
   const fetchData = async() => {
 
     // Detch note data from sever
-    axios.get('/notes'
+    axios.get('http://localhost:4000/notes'
   ).then(
     (response) => {
       setNotes(response.data)
